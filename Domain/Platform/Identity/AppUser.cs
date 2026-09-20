@@ -1,13 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Domain.Platform;
-public class AppUser : IdentityUser<Guid>
+namespace Domain.Platform.Identity;
+
+public class AppUser : IdentityUser
 {
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
     public DateTime CreatedAt { get; set; }
-}
-public class AppRole : IdentityRole<Guid>
-{
-    public string? Description { get; set; }
 }

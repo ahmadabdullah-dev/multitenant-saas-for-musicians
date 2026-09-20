@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
-public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+public class AppDbContext : IdentityDbContext<AppUser, AppRole,string>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
