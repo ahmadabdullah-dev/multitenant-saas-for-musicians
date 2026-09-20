@@ -3,3 +3,19 @@
 A platfor that helps musicians manage their work, organize appointments, share content and experiences, promote their works, and build their online presence.
 
 Each musician has their own tenant and can only access their own data securely. The **Super Admin** manages tenants, subscriptions, and packages, with different features available for each package.
+
+## Run Database Migrations
+
+Run these commands from the **solution root**.
+
+**Add a migration:**
+
+```powershell
+dotnet ef migrations add Mig_1 --project .\Infrastructure\Infrastructure.csproj --startup-project .\API\API.csproj
+```
+
+**Apply migrations:**
+
+```powershell
+dotnet ef database update --project .\Infrastructure\Infrastructure.csproj --startup-project .\API\API.csproj
+```
