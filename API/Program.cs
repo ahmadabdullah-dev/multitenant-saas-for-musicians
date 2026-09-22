@@ -15,6 +15,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
     app.MapScalarApiReference();
 }
+await app.Services.SeedDataAsync();
 
 app.UseHttpsRedirection();
 
