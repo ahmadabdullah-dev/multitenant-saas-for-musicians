@@ -1,4 +1,6 @@
-﻿namespace Domain.Tenant.Identity;
+﻿using Domain.Common.Identity;
+
+namespace Domain.Tenant.Identity;
 
 public class TenantUser : AppUser
 {
