@@ -32,6 +32,7 @@ public class DataSeeder
         var roles = new List<AppRole>()
         {
             new() { Name = "StaffSuperAdmin" },
+            new() { Name = "User" },
         };
 
         foreach (var role in roles)
@@ -54,6 +55,7 @@ public class DataSeeder
         var users = new List<(AppUser user, string role, string password)>()
         {
             (new() { FirstName = "Ahmad", LastName = "Abdullah", UserName = "ahmad", Email = "superadmin@staff.com", EmailConfirmed = true }, "StaffSuperAdmin", "Pa$$w0rd"),
+            (new() { FirstName = "Cristiano", LastName = "Ronaldo", UserName = "cr7", Email = "admin@staff.com", EmailConfirmed = true }, "User", "Pa$$w0rd"),
         };
 
         foreach (var (user, role, password) in users)
