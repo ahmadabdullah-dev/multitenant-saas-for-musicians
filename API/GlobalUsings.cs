@@ -4,3 +4,5 @@ global using Application.Common;
 global using Application.Dtos.Common;
 global using Application.Interfaces.Common;
 global using Application;
+global using API.Controllers.Common;
+global using Application.Interfaces.Tenant;
