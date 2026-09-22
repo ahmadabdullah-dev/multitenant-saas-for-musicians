@@ -1,8 +1,5 @@
-﻿global using Application.Interfaces.Tenant;
-global using Application.Interfaces.Staff;
-global using Application.Dtos.Tenant;
-global using Application.Dtos.Staff;
-global using Application.Services.Staff;
-global using Application.Services.Tenant;
-global using Application.Common;
-global using Domain.Staff.Identity;
+﻿global using Application.Common;
+global using Application.Dtos.Common;
+global using Application.Interfaces.Common;
+global using Domain.Common.Identity;
+global using Application.Services.Common;

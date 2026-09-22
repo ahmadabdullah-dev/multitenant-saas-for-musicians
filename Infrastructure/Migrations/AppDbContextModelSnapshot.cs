@@ -22,7 +22,7 @@ namespace Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Platform.Identity.AppRole", b =>
+            modelBuilder.Entity("Domain.Common.Identity.AppRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -52,7 +52,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Platform.Identity.AppUser", b =>
+            modelBuilder.Entity("Domain.Common.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -78,6 +78,9 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
+
+                    b.Property<bool>("IsSystemAdmin")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -108,6 +111,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<string>("TenantId")
                         .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -239,7 +245,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Domain.Platform.Identity.AppRole", null)
+                    b.HasOne("Domain.Common.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -248,7 +254,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Domain.Platform.Identity.AppUser", null)
+                    b.HasOne("Domain.Common.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -257,7 +263,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Domain.Platform.Identity.AppUser", null)
+                    b.HasOne("Domain.Common.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -266,13 +272,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Domain.Platform.Identity.AppRole", null)
+                    b.HasOne("Domain.Common.Identity.AppRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Platform.Identity.AppUser", null)
+                    b.HasOne("Domain.Common.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -281,7 +287,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Domain.Platform.Identity.AppUser", null)
+                    b.HasOne("Domain.Common.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

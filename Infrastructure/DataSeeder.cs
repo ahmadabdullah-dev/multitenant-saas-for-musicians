@@ -4,67 +4,63 @@ using Microsoft.EntityFrameworkCore;
 namespace Infrastructure;
 public class DataSeeder
 {
-    private readonly UserManager<StaffUser> _staffUserManager;
-    private readonly RoleManager<StaffRole> _staffRoleManager;
-    private readonly UserManager<TenantUser> _tenantUserManager;
-    private readonly RoleManager<TenantRole> _tenantRoleManager;
+    private readonly UserManager<AppUser> _userManager;
+    private readonly RoleManager<AppRole> _roleManager;
+
 
     public DataSeeder(
-        UserManager<TenantUser> tenantUserManager, 
-        RoleManager<TenantRole> tenantRoleManager,
-        UserManager<StaffUser> staffUserManager,
-        RoleManager<StaffRole> staffRoleManager
-        
+        UserManager<AppUser> userManager, 
+        RoleManager<AppRole> roleManager
         )
     {
-        _tenantRoleManager = tenantRoleManager;
-        _tenantUserManager = tenantUserManager;
-        _staffUserManager = staffUserManager;
-        _staffRoleManager = staffRoleManager;
 
+        _userManager = userManager;
+        _roleManager = roleManager;
     }
     public async Task Seed()
     {
-        await SeedStaffRoles();
-        await SeedStaffUsers();
+        await SeedUsers();
+        await SeedRoles();
     }
     
-    public async Task SeedStaffRoles()
+    public async Task SeedRoles()
     {
-        var dbRoles = await _staffRoleManager.Roles.ToListAsync();
+        var dbRoles = await _roleManager.Roles.ToListAsync();
 
-        var roles = new List<StaffRole>()
+        var roles = new List<AppRole>()
         {
-            new() {Name = "SuperAdmin"},
-            new() {Name = "Admin"},
+            new() {Name = "StaffSuperAdmin"},
+            new() {Name = "StaffAdmin"},
+            new() {Name = "TenantSuperAdmin"},
         };
 
         foreach(var role in roles)
         {
             if (!dbRoles.Contains(role))
             {
-                await  _staffRoleManager.CreateAsync(role);
+                await  _roleManager.CreateAsync(role);
             }
         }
     }
-    public async Task SeedStaffUsers()
+    public async Task SeedUsers()
     {
-        var users = new List<(StaffUser user, string role)>()
+        var users = new List<(AppUser user, string role)>()
         {
-            (new() { FirstName = "SuperAdminFN",LastName = "SuperAdminLN"  ,UserName = "superadmin@test.com", Email= "superadmin@test.com", EmailConfirmed = true}, "SuperAdmin"),
-            (new() { FirstName = "AdminFN", LastName = "AdminLN" ,UserName = "admin@test.com", Email= "admin@test.com", EmailConfirmed = true}, "Admin"),
+            (new() { FirstName = "Ahmad",LastName = "Abdullah", UserName = "ahmad", Email= "superadmin@staff.com", EmailConfirmed = true}, "StaffSuperAdmin"),
+            (new() { FirstName = "Cristiano", LastName = "Ronaldo", UserName = "cr7", Email= "admin@staff.com", EmailConfirmed = true}, "StaffAdmin"),
+            (new() { FirstName = "Elon",LastName = "Musk", UserName = "elon", Email= "superadmin@tenant.com", EmailConfirmed = true}, "TenantSuperAdmin"),
         };
         
         foreach (var (user,role) in users)
         {
-            var existingUser = await _staffUserManager.FindByNameAsync(user.UserName!);
+            var existingUser = await _userManager.FindByNameAsync(user.UserName!);
          
             if (existingUser == null)
             {
-                var result = await _staffUserManager.CreateAsync(user,"Pa$$w0rd");       
+                var result = await _userManager.CreateAsync(user,"Pa$$w0rd");       
                
                 if(result.Succeeded)
-                    await _staffUserManager.AddToRoleAsync(user, role);
+                    await _userManager.AddToRoleAsync(user, role);
             }
         }
     }

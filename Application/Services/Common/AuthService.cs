@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Application.Services.Tenant;
+namespace Application.Services.Common;
 
-public class TenantAuthService : ITenantAuthService
+public class AuthService : IAuthService
 {
-    private readonly UserManager<StaffUser> _userManager;
-    private readonly SignInManager<StaffUser> _signInManager;
-    public TenantAuthService(UserManager<StaffUser> userManager,
-        SignInManager<StaffUser> signInManager)
+    private readonly UserManager<AppUser> _userManager;
+    private readonly SignInManager<AppUser> _signInManager;
+    public AuthService(UserManager<AppUser> userManager,
+        SignInManager<AppUser> signInManager)
     {
         _userManager = userManager;
         _signInManager = signInManager;
     }
 
-    public async Task<Result<string>> TenantLoginAsync(TenantLoginDto dto)
+    public async Task<Result<string>> LoginAsync(LoginDto dto)
     {
         var user = await _userManager.FindByEmailAsync(dto.Email.ToLower());
 
