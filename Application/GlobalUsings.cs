@@ -4,3 +4,5 @@ global using Application.Dtos.Tenant;
 global using Application.Dtos.Staff;
 global using Application.Services.Staff;
 global using Application.Services.Tenant;
+global using Application.Common;
+global using Domain.Staff.Identity;

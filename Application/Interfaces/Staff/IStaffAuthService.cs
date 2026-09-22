@@ -2,4 +2,5 @@
 
 public interface IStaffAuthService
 {
+    Task<Result<string>> StaffLoginAsync(StaffLoginDto dto);  
 }
