@@ -4,6 +4,12 @@ A platfor that helps musicians manage their work, organize appointments, share c
 
 Each musician has their own tenant and can only access their own data securely. The **Super Admin** manages tenants, subscriptions, and packages, with different features available for each package.
 
+## Tech Stack
+- **WEB:** React, TypeScript, TanStack Query, Axios, MUI, React Router
+- **API:** ASP.NET Web API, C#
+- **Auth:** ASP.NET Identity, Cookie-based Authentication, Role-based Authorization
+- **ORM:** Entity Framework, Code First, BaseEntity
+- **Architecture:** Layered Architecture, Result<T> Pattern, Repository Pattern, BaseApiController, Global Usings
 ## Run Database Migrations
 
 Run these commands from the **solution root**.
