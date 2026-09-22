@@ -31,6 +31,7 @@ public static class DependencyInjection
         services.AddDataProtection();
 
         services.AddScoped<DataSeeder>();
+        services.AddScoped<ITenantRepository, TenantRepository>();
 
         return services;
     }
