@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router";
-import theme from "../../lib/theme";
+import theme from "../../../lib/theme";
 
 export default function AppLogoWithName() {
   return (
