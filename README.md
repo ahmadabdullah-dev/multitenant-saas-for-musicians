@@ -9,7 +9,15 @@ Each musician has their own tenant and can only access their own data securely. 
 - **API:** ASP.NET Web API, C#
 - **Auth:** ASP.NET Identity, Cookie-based Authentication, Role-based Authorization
 - **ORM:** Entity Framework, Code First, BaseEntity
-- **Architecture:** Layered Architecture, Result<T> Pattern, Repository Pattern, BaseApiController, Global Usings
+- **Architecture:** Layered Architecture, Result<T> Pattern, Repository Pattern, BaseApiController, Global Usings, IOptions for configurations, DTOs, PagedList and PaginationParams
+
+## Features 
+- EmailService
+- DataSeeder
+- RateLimiter
+- Cors
+- AuthService (Login, Logout)
+  
 ## Run Database Migrations
 
 Run these commands from the **solution root**.
