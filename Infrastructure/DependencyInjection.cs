@@ -32,6 +32,7 @@ public static class DependencyInjection
 
         services.AddScoped<DataSeeder>();
         services.AddScoped<ITenantRepository, TenantRepository>();
+        services.AddScoped<IUserTenantRepository, UserTenantRepository>();
 
         return services;
     }
