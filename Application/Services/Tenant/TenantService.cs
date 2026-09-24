@@ -17,7 +17,6 @@ public class TenantService : ITenantService
         {
             Name = dto.Name,
             Description = dto.Description,
-            CreatedAt = DateTime.UtcNow
         };
 
         try
@@ -34,5 +33,20 @@ public class TenantService : ITenantService
 
         return Result<string>.Success($"{dto.Name} tenant added successfully");
 
+    }
+    public async Task<Result<TenantDto>> GetTenantByIdAsync(string tenantId, CancellationToken ct)
+    {
+        var entity = await _tenantRepository.GetByIdAsync(tenantId, ct);
+
+        if (entity == null)
+            return Result<TenantDto>.Failure("Tenant was not found", 404);
+
+        var dto = new TenantDto
+        {
+            Id = tenantId,
+            Name = entity.Name,
+            Description = entity.Description
+        };
+        return Result<TenantDto>.Success(dto);
     }
 }

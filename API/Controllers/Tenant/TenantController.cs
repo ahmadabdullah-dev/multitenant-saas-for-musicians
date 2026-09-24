@@ -17,4 +17,10 @@ public class TenantController : BaseApiController
         var result = await _tenantService.CreateTenantAsync(dto, ct);
         return HandleResult(result);
     }
+    [HttpGet("{tenantId}")]
+    public async Task<ActionResult> CreateTenant(string tenantId, CancellationToken ct)
+    {
+        var result = await _tenantService.GetTenantByIdAsync(tenantId, ct);
+        return HandleResult(result);
+    }
 }
