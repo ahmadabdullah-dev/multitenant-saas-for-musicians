@@ -9,7 +9,6 @@ Each musician has their own tenant and can only access their own data securely. 
 - **API:** ASP.NET Web API, C#
 - **Auth:** ASP.NET Identity, Cookie-based Authentication, Role-based Authorization
 - **ORM:** Entity Framework, Code First, BaseEntity
-- **Architecture:** Layered Architecture, Result<T> Pattern, Repository Pattern, BaseApiController, Global Usings, IOptions for configurations, DTOs, PagedList and PaginationParams
 
 ## Features 
 - EmailService
@@ -17,7 +16,14 @@ Each musician has their own tenant and can only access their own data securely. 
 - RateLimiter
 - Cors
 - AuthService (Login, Logout)
-  
+
+## Architechure(Layered On API)
+- **WEB:** UI Components, Hooks, Routes, Call APIs
+- **API:** Controllers, BaseApiController, CORS, UserSecrets, RateLimiter, GlobalUsings, AppCookie Configuration, Policies, DI per layer
+- **Application:** Services, Interfaces, Dtos, Result<T> Pattern, Global Usings, IOptions for Configurations, DI per layer, GlobalUsings
+- **Infrastructure:** Repositories, Interfaces, BaseRepository, PagedList, DataSeeder, AppDbContext, DI per layer, GlobalUsings
+- **Domain:** BaseEntity, Entities, GlobalUsings
+
 ## Run Database Migrations
 
 Run these commands from the **solution root**.
