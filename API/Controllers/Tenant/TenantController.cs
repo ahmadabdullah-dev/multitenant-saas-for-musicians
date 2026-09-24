@@ -11,7 +11,7 @@ public class TenantController : BaseApiController
         _tenantService = tenantService;
     }
     [HttpPost("create-tenant")]
-    [Authorize(Roles = "StaffSuperAdmin")]
+    [Authorize(Policy = "SuperAdminOnly")]
     public async Task<ActionResult> CreateTenant([FromBody] CreateTenantDto dto, CancellationToken ct)
     {
         var result = await _tenantService.CreateTenantAsync(dto, ct);
