@@ -8,5 +8,5 @@ public class UserTenantEntity : BaseEntity
     public string TenantId { get; set; } = null!;
     public TenantEntity Tenant { get; set; } = null!;
 
-    public string Role { get; set; } = null!;
+    public string Role { get; set; } = "Member";
 }

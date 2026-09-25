@@ -6,4 +6,4 @@ global using Application.Interfaces.Common;
 global using Application;
 global using API.Controllers.Common;
 global using Application.Interfaces.Tenant;
-global using Application.Dtos;
+global using Application.Dtos.Tenant;

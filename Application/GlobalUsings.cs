@@ -6,6 +6,6 @@ global using Application.Services.Common;
 global using Application.Interfaces.Tenant;
 global using Application.Services.Tenant;
 global using Application.Common.Configurations;
-global using Application.Dtos;
+global using Application.Dtos.Tenant;
 global using Domain.Tenant;
 global using Infrastructure.Interfaces.Tenant;

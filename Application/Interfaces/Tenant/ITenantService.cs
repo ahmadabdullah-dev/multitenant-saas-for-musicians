@@ -1,4 +1,6 @@
-﻿namespace Application.Interfaces.Tenant;
+﻿using Application.Dtos.Tenant;
+
+namespace Application.Interfaces.Tenant;
 
 public interface ITenantService
 {

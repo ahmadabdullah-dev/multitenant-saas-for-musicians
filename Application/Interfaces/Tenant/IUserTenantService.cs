@@ -2,5 +2,5 @@
 
 public interface IUserTenantService
 {
-    //Task<Result<string>> AddUserToTenantAsync(string UserId, string TenantId,  CancellationToken ct);
+    Task<Result<string>> AddUserToTenantAsync(AddUserToTenantDto dto, CancellationToken ct);
 }

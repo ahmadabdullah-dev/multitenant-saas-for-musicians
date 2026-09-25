@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Application.Dtos.Tenant;
+using Microsoft.Extensions.Logging;
 
 namespace Application.Services.Tenant;
 
@@ -49,7 +50,7 @@ public class TenantService : ITenantService
         };
         return Result<TenantDto>.Success(dto);
     }
-    public async Task<bool> IsTenantExistesById(string id, CancellationToken ct)
+    public async Task<bool> IsTenantExistsById(string id, CancellationToken ct)
     => await _tenantRepository.IsTenantExistsByIdAsync(id, ct);
         
     
