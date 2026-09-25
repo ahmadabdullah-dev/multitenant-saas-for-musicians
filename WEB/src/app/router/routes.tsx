@@ -3,6 +3,7 @@ import App from "../App";
 import ErrorPage from "../../features/errors/ErrorPage";
 import NotFound from "../../features/errors/NotFound";
 import LandingPage from "../LandingPage";
+import LoginForm from "../../features/auth/LoginForm";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -10,7 +11,7 @@ export const routes = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <LandingPage /> },
-
+      { path: "login", element: <LoginForm /> },
       { path: "*", element: <NotFound /> },
     ],
   },

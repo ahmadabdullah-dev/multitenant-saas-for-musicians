@@ -14,9 +14,11 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^9.4.0",
     "@mui/material": "^9.4.0",
+    "@tanstack/react-query": "^5.103.2",
     "axios": "^1.20.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-hook-form": "^7.88.0",
     "react-router": "^8.4.0",
     "rollup-plugin-visualizer": "^7.1.1",
     "vite-plugin-mkcert": "^2.1.0"
