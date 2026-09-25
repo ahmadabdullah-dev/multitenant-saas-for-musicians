@@ -49,4 +49,8 @@ public class TenantService : ITenantService
         };
         return Result<TenantDto>.Success(dto);
     }
+    public async Task<bool> IsTenantExistesById(string id, CancellationToken ct)
+    => await _tenantRepository.IsTenantExistsByIdAsync(id, ct);
+        
+    
 }
