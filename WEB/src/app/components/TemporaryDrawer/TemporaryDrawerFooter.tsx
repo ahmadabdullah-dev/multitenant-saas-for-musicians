@@ -14,7 +14,7 @@ export default function TemporaryDrawerFooter() {
         variant="caption"
         sx={{ whiteSpace: "nowrap", color: "text.secondary" }}
       >
-        © {new Date().getFullYear()} Musicians SaaS. All rights reserved.
+        © {new Date().getFullYear()} Tadriby Coach SaaS. All rights reserved.
       </Typography>
     </Box>
   );

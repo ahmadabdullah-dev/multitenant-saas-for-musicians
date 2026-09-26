@@ -32,7 +32,7 @@ export default function AppLogoWithName() {
           lineHeight: 1,
         }}
       >
-        Musicains SaaS
+      Tadriby Coach
       </Typography>
     </Box>
   );
