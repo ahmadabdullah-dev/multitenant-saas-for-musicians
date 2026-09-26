@@ -1,8 +1,8 @@
-# Multitenant SaaS for musicians
+# Tadriby Coach
 
-A platfor that helps musicians manage their work, organize appointments, share content and experiences, promote their works, and build their online presence.
-
-Each musician has their own tenant and can only access their own data securely. The **Super Admin** manages tenants, subscriptions, and packages, with different features available for each package.
+- A multi-tenant SaaS platform for personal trainers to manage their clients, organize appointments, create training plans, and manage their coaching business.
+- Each personal trainer has their own tenant and can securely access only their own data and clients. 
+- The Super Admin manages trainers, subscriptions, platform and more.
 
 ## Tech Stack
 - **WEB:** React, TypeScript, TanStack Query, Axios, MUI, React Router
