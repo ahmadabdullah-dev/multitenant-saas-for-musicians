@@ -118,7 +118,7 @@ export default function Footer() {
           }}
         >
           <Typography sx={{ fontSize: 12.5, color: "text.secondary" }}>
-            © {new Date().getFullYear()} Musicians SaaS. All rights reserved.
+            © {new Date().getFullYear()} Tadriby Coach. All rights reserved.
           </Typography>
 
           <Stack direction="row" spacing={2.5}>
